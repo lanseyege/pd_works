@@ -37,14 +37,17 @@
 
 - OBS_POSE = OBS_STR + ".pose" # change needed
 
-在 src/lerobot/configs/policies.py
+<p>在 src/lerobot/configs/policies.py</p>
 
-- @property
+<pre><code>
+  @property
   def robot_pose_feature(self) -> PolicyFeature | None: # add by ye 20251203
       for ft_name, ft in self.input_features.items():
           if ft.type is FeatureType.STATE and ft_name == OBS_POSE :
               return ft
       return None
+</code></pre>
+
 
 在src/lerobot/policies/act/modeling_act.py添加相应的源代码，类似对state的处理。
 
